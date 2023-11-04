@@ -30,7 +30,9 @@ let mongoUrlDocker = "mongodb://admin:password@mongodb";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
-let databaseName = "my-db";
+let databaseName = "user-account";
+
+const collection = 'users';
 
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;
@@ -44,7 +46,7 @@ app.post('/update-profile', function (req, res) {
     let myquery = { userid: 1 };
     let newvalues = { $set: userObj };
 
-    db.collection("users").updateOne(myquery, newvalues, {upsert: true}, function(err, res) {
+    db.collection(collection).updateOne(myquery, newvalues, {upsert: true}, function(err, res) {
       if (err) throw err;
       client.close();
     });
@@ -64,7 +66,7 @@ app.get('/get-profile', function (req, res) {
 
     let myquery = { userid: 1 };
 
-    db.collection("users").findOne(myquery, function (err, result) {
+    db.collection(collection).findOne(myquery, function (err, result) {
       if (err) throw err;
       response = result;
       client.close();
