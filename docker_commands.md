@@ -24,3 +24,9 @@ docker network create mongo-network
     --name mongo-express \
     -e ME_CONFIG_MONGODB_SERVER=mongodb \
     mongo-express 
+
+## with auto mate of start all containers
+
+ sudo docker-compose -f docker-compose.yaml up
+
+ up or down
