@@ -11,7 +11,8 @@ docker network create mongo-network
     -e MONGO_INITDB_ROOT_USERNAME=admin \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
     --name mongodb \
-    --net mongo-network mongo    
+    --net mongo-network
+    mongo    
 
 ## start mongo-express
 
