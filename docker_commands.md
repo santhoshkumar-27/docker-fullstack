@@ -44,7 +44,7 @@ Remember, you should remove all the containers before removing all the images fr
 
 sudo docker rm -vf $(sudo docker ps -aq)
 
-sudo docker rmi -f $(sudo ddocker images -aq)
+sudo docker rmi -f $(sudo docker images -aq)
 
 sudo docker build -t my-app:1.4 .
 
