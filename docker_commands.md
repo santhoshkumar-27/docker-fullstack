@@ -33,3 +33,11 @@ sudo docker-compose -f docker-compose.yaml up -d
 
 sudo docker-compose -f docker-compose.yaml down
  up or down
+
+To delete all containers including its volumes use,
+
+docker rm -vf $(docker ps -aq)
+To delete all the images,
+
+docker rmi -f $(docker images -aq)
+Remember, you should remove all the containers before removing all the images from which those containers were created.
